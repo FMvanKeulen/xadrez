@@ -10,7 +10,7 @@ namespace xadrez_console
             Tabuleiro P;
             P = new Tabuleiro(8, 8);
 
-            Console.WriteLine("Posição: " + P);
+            Tela.imprimirTabuleiro(P);
         }
     }
 }

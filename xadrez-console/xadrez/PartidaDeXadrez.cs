@@ -74,6 +74,16 @@ namespace xadrez
         public void RealizaJogada(Posicao origem, Posicao destino)
         {
             Peca pecaCapturada = ExecutaMovimento(origem, destino);
+            Peca p = Tab.Peca(destino);
+
+            if (p is Peao)
+                if ((p.cor == Cor.Branca && destino.linha == 0) || (p.cor == Cor.Preta && destino.linha == 7))
+                {
+                    p = Tab.RetirarPeca(destino);
+                    pecas.Remove(p);
+                    Peca dama = new Queen(tab:, p.cor);
+                    pecas.Add(dama);
+                }
 
             if (EstaEmXeque(jogadorAtual))
             {
